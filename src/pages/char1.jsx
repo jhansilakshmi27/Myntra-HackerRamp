@@ -11,44 +11,47 @@ const Char1 = () => {
   };
 
   const renderButton = (id) => (
-    <div
-      className="absolute top-[26.875rem] left-[2.875rem] w-[21.438rem] h-[3.875rem] cursor-pointer"
-      onClick={() => handleAddToBagClick(id)}
-    >
-      <img
-        className="absolute top-[0.063rem] left-[16.625rem] w-[4.813rem] h-[3.813rem] object-cover"
-        alt=""
-        src="/bookmark@2x.png"
-      />
-      <img
-       className="absolute top-[0rem] left-[12.375rem] w-[4.813rem] h-[3.813rem] object-cover"
-        alt=""
-        src="/component-42@2x.png"
-      />
-      <div className="absolute top-[0.063rem] left-[0rem] w-[12.188rem] h-[3.75rem]">
-        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-mini bg-whitesmoke-100" />
-        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] flex items-center justify-center font-semibold">
-          {buttonStates[id] ? (
-            <div className="flex items-center">
-              <span>Added</span>
-              <div className="ml-3 w-7 h-7 bg-black rounded-full flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="white"
-                  className="w-5 h-6"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M20.292 5.707a1 1 0 00-1.414-1.414l-9 9a1 1 0 01-1.414 0l-3-3a1 1 0 00-1.414 1.414l3.707 3.707a3 3 0 004.242 0l9-9z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+    <div className="relative">
+      <div
+        className="absolute top-[26.875rem] left-[2.875rem] w-[21.438rem] h-[3.875rem] cursor-pointer"
+      >
+        <img
+          className="absolute top-[0.063rem] left-[16.625rem] w-[4.813rem] h-[3.813rem] object-cover"
+          alt=""
+          src="/bookmark@2x.png"
+        />
+        <img
+          className="absolute top-[0rem] left-[12.375rem] w-[4.813rem] h-[3.813rem] object-cover"
+          alt=""
+          src="/component-42@2x.png"
+        />
+        <div
+          className="absolute top-[0.063rem] left-[0rem] w-[12.188rem] h-[3.75rem] cursor-pointer"
+          onClick={() => handleAddToBagClick(id)}
+        >
+          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-mini bg-whitesmoke-100" />
+          <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] flex items-center justify-center font-semibold">
+            {buttonStates[id] ? (
+              <div className="flex items-center">
+                <span>Added</span>
+                <div className="ml-3 w-7 h-7 bg-black rounded-full flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="white"
+                    className="w-5 h-6"
+                  >
+                    <path fillRule="evenodd"
+                      d="M20.292 5.707a1 1 0 00-1.414-1.414l-9 9a1 1 0 01-1.414 0l-3-3a1 1 0 00-1.414 1.414l3.707 3.707a3 3 0 004.242 0l9-9z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
-            </div>
-          ) : (
-           "Add to Bag"
-          )}
+            ) : (
+              "Add to Bag"
+            )}
+          </div>
         </div>
       </div>
     </div>

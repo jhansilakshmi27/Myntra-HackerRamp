@@ -1,20 +1,32 @@
-import { useCallback } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const DecorIntro = () => {
   const navigate = useNavigate();
+  const [buttonStates, setButtonStates] = useState({
+    button1: "Add to Bag",
+    button2: "Add to Bag",
+    button3: "Add to Bag",
+  });
 
-  const onGroupContainerClick = useCallback(() => {
+  const handleButtonClick = (buttonId) => {
+    setButtonStates((prevState) => ({
+      ...prevState,
+      [buttonId]: prevState[buttonId] === "Add to Bag" ? "Added" : "Add to Bag",
+    }));
+  };
+
+  const onGroupContainerClick = () => {
     navigate("/decor-1");
-  }, [navigate]);
+  };
 
-  const onGroupContainerClick1 = useCallback(() => {
+  const onGroupContainerClick1 = () => {
     navigate("/decor-3");
-  }, [navigate]);
+  };
 
-  const onGroupContainerClick2 = useCallback(() => {
+  const onGroupContainerClick2 = () => {
     navigate("/decor-2");
-  }, [navigate]);
+  };
 
   return (
     <div className="w-full relative [background:linear-gradient(180deg,_rgba(255,_52,_222,_0.9)_8.35%,_rgba(254,_86,_15,_0.9)_92.17%)] h-[111.375rem] overflow-hidden text-left text-[1.625rem] text-black font-inter">
@@ -99,10 +111,29 @@ const DecorIntro = () => {
                 src="/component-4@2x.png"
               />
             </div>
-            <div className="absolute top-[0rem] left-[0rem] w-[12.375rem] h-[3.75rem] text-[1.875rem]">
+            <div
+              className="absolute top-[0rem] left-[0rem] w-[12.375rem] h-[3.75rem] text-[1.875rem] cursor-pointer"
+              onClick={() => handleButtonClick("button1")}
+            >
               <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-mini bg-whitesmoke-100" />
               <div className="absolute h-[62.33%] w-[92.12%] top-[16.67%] left-[7.68%] font-semibold inline-block">
-                Add to Bag
+                {buttonStates.button1 === "Added"? (
+                  <span>
+                    Added
+                    <svg
+                      className="inline-block w-[1.5rem] h-[1.5rem] ml-[0.5rem]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="2"
+                    >
+                      <circle cx="12" cy="12" r="10" fill="#000" />
+                      <path d="M10 15L12 17L16 11" stroke="#fff" strokeWidth="2" />
+                    </svg>
+                  </span>
+                ) : (
+                  buttonStates.button1
+                )}
               </div>
             </div>
           </div>
@@ -144,10 +175,29 @@ const DecorIntro = () => {
                 src="/component-4@2x.png"
               />
             </div>
-            <div className="absolute top-[0rem] left-[0rem] w-[12.375rem] h-[3.75rem] text-[1.875rem]">
+            <div
+              className="absolute top-[0rem] left-[0rem] w-[12.375rem] h-[3.75rem] text-[1.875rem] cursor-pointer"
+              onClick={() => handleButtonClick("button2")}
+            >
               <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-mini bg-whitesmoke-100" />
               <div className="absolute h-[62.33%] w-[92.12%] top-[16.67%] left-[7.68%] font-semibold inline-block">
-                Add to Bag
+                {buttonStates.button2 === "Added"? (
+                  <span>
+                    Added
+                    <svg
+                      className="inline-block w-[1.5rem] h-[1.5rem] ml-[0.5rem]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="2"
+                    >
+                      <circle cx="12" cy="12" r="10" fill="#000" />
+                      <path d="M10 15L12 17L16 11" stroke="#fff" strokeWidth="2" />
+                    </svg>
+                  </span>
+                ) : (
+                  buttonStates.button2
+                )}
               </div>
             </div>
           </div>
@@ -189,10 +239,29 @@ const DecorIntro = () => {
                 src="/component-41@2x.png"
               />
             </div>
-            <div className="absolute top-[0rem] left-[0rem] w-[12.375rem] h-[3.75rem] text-[1.875rem]">
+            <div
+              className="absolute top-[0rem] left-[0rem] w-[12.375rem] h-[3.75rem] text-[1.875rem] cursor-pointer"
+              onClick={() => handleButtonClick("button3")}
+            >
               <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-mini bg-whitesmoke-100" />
               <div className="absolute h-[62.33%] w-[92.12%] top-[16.67%] left-[7.68%] font-semibold inline-block">
-                Add to Bag
+                {buttonStates.button3 === "Added"? (
+                  <span>
+                    Added
+                    <svg
+                      className="inline-block w-[1.5rem] h-[1.5rem] ml-[0.5rem]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="2"
+                    >
+                      <circle cx="12" cy="12" r="10" fill="#000" />
+                      <path d="M10 15L12 17L16 11" stroke="#fff" strokeWidth="2" />
+                    </svg>
+                  </span>
+                ) : (
+                  buttonStates.button3
+                )}
               </div>
             </div>
           </div>
@@ -207,4 +276,4 @@ const DecorIntro = () => {
   );
 };
 
-export default DecorIntro;
+export default DecorIntro
