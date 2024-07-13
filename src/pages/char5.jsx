@@ -104,7 +104,7 @@ const Char5 = () => {
         </div>
       </div>
       <div className="absolute top-[11.063rem] left-[12.688rem] w-[60rem] h-[39.063rem] text-[1.875rem] font-inter">
-        <div className="absolute top-[0rem] left-[0rem] text-[2rem] font-extrabold text-gray-100 whitespace-pre-wrap inline-block w-[46.438rem] h-[3.563rem]">{`Kate Winslet Costumes & Accesories:`}</div>
+     <div className="absolute top-[0rem] left-[0rem] text-[2rem] font-extrabold text-gray-100 whitespace-pre-wrap inline-block w-[46.438rem] h-[3.563rem]">{`Kate Winslet Costumes & Accesories:`}</div>
         <div className="absolute top-[5.25rem] left-[4.563rem] w-[27.188rem] h-[33.813rem]">
           <div className="absolute top-[0rem] left-[0rem] w-[27.188rem] h-[33.813rem]">
             <div className="absolute top-[0rem] left-[0rem] rounded-6xl bg-gray-400 box-border w-[27.188rem] h-[33.813rem] border-[2px] border-solid border-black" />

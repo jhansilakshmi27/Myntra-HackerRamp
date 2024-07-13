@@ -1,4 +1,59 @@
+import React, { useState } from "react";
+
 const Char1 = () => {
+  const [buttonStates, setButtonStates] = useState({});
+
+  const handleAddToBagClick = (id) => {
+    setButtonStates((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id],
+    }));
+  };
+
+  const renderButton = (id) => (
+    <div
+      className="absolute top-[26.875rem] left-[2.875rem] w-[21.438rem] h-[3.875rem] cursor-pointer"
+      onClick={() => handleAddToBagClick(id)}
+    >
+      <img
+        className="absolute top-[0.063rem] left-[16.625rem] w-[4.813rem] h-[3.813rem] object-cover"
+        alt=""
+        src="/bookmark@2x.png"
+      />
+      <img
+       className="absolute top-[0rem] left-[12.375rem] w-[4.813rem] h-[3.813rem] object-cover"
+        alt=""
+        src="/component-42@2x.png"
+      />
+      <div className="absolute top-[0.063rem] left-[0rem] w-[12.188rem] h-[3.75rem]">
+        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-mini bg-whitesmoke-100" />
+        <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] flex items-center justify-center font-semibold">
+          {buttonStates[id] ? (
+            <div className="flex items-center">
+              <span>Added</span>
+              <div className="ml-3 w-7 h-7 bg-black rounded-full flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                  className="w-5 h-6"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M20.292 5.707a1 1 0 00-1.414-1.414l-9 9a1 1 0 01-1.414 0l-3-3a1 1 0 00-1.414 1.414l3.707 3.707a3 3 0 004.242 0l9-9z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          ) : (
+           "Add to Bag"
+          )}
+        </div>
+      </div>
+    </div>
+  );
+      
   return (
     <div className="w-full relative [background:linear-gradient(180deg,_rgba(255,_52,_222,_0.9)_8.35%,_rgba(254,_86,_15,_0.9)_92.17%)] h-[64rem] overflow-hidden text-left text-[2rem] text-black font-ibm-plex-sans">
       <i className="absolute top-[112.438rem] left-[31.5rem] text-gray-100">
@@ -53,24 +108,8 @@ const Char1 = () => {
         <div className="absolute top-[5.063rem] left-[4.688rem] w-[27.188rem] h-[33.813rem]">
           <div className="absolute top-[0rem] left-[0rem] w-[27.188rem] h-[33.813rem]">
             <div className="absolute top-[0rem] left-[0rem] rounded-6xl bg-gray-400 box-border w-[27.188rem] h-[33.813rem] border-[2px] border-solid border-black" />
-            <div className="absolute top-[26.875rem] left-[2.875rem] w-[21.438rem] h-[3.875rem]">
-              <img
-                className="absolute top-[0.063rem] left-[16.625rem] w-[4.813rem] h-[3.813rem] object-cover"
-                alt=""
-                src="/bookmark@2x.png"
-              />
-              <img
-                className="absolute top-[0rem] left-[12.375rem] w-[4.813rem] h-[3.813rem] object-cover"
-                alt=""
-                src="/component-42@2x.png"
-              />
-              <div className="absolute top-[0.063rem] left-[0rem] w-[12.188rem] h-[3.75rem]">
-                <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-mini bg-whitesmoke-100" />
-                <div className="absolute h-[62.33%] w-[92.1%] top-[16.67%] left-[7.69%] font-semibold inline-block">
-                  Add to Bag
-                </div>
-              </div>
-            </div>
+            {renderButton("button1")}
+           
           </div>
           <div className="absolute top-[2.313rem] left-[2.75rem] w-[21.688rem] h-[23.375rem]">
             <img
@@ -88,24 +127,8 @@ const Char1 = () => {
         <div className="absolute top-[5.063rem] left-[32.813rem] w-[27.188rem] h-[33.813rem]">
           <div className="absolute top-[0rem] left-[0rem] w-[27.188rem] h-[33.813rem]">
             <div className="absolute top-[0rem] left-[0rem] rounded-6xl bg-gray-400 box-border w-[27.188rem] h-[33.813rem] border-[2px] border-solid border-black" />
-            <div className="absolute top-[26.875rem] left-[2.875rem] w-[21.438rem] h-[3.875rem]">
-              <img
-                className="absolute top-[0.063rem] left-[16.625rem] w-[4.813rem] h-[3.813rem] object-cover"
-                alt=""
-                src="/bookmark@2x.png"
-              />
-              <img
-                className="absolute top-[0rem] left-[12.375rem] w-[4.813rem] h-[3.813rem] object-cover"
-                alt=""
-                src="/component-42@2x.png"
-              />
-              <div className="absolute top-[0.063rem] left-[0rem] w-[12.188rem] h-[3.75rem]">
-                <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-mini bg-whitesmoke-100" />
-                <div className="absolute h-[62.33%] w-[92.1%] top-[16.67%] left-[7.69%] font-semibold inline-block">
-                  Add to Bag
-                </div>
-              </div>
-            </div>
+            {renderButton("button2")}
+            
           </div>
           <div className="absolute top-[2.313rem] left-[2.625rem] w-[21.688rem] h-[23.375rem]">
             <img
