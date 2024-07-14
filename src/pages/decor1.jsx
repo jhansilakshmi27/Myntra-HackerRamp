@@ -1,12 +1,17 @@
-import { useCallback } from "react";
+import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Decor1 = () => {
   const navigate = useNavigate();
+  const [isHeartFilled, setIsHeartFilled] = useState(false);
 
   const onGroupContainerClick = useCallback(() => {
     navigate("/ar-view");
   }, [navigate]);
+
+  const toggleHeart = () => {
+    setIsHeartFilled((prev) => !prev);
+  };
 
   return (
     <div className="w-full relative [background:linear-gradient(180deg,_rgba(255,_52,_222,_0.9)_8.35%,_rgba(254,_86,_15,_0.9)_92.17%)] h-[64rem] overflow-hidden text-left text-[2rem] text-gray-100 font-ibm-plex-sans">
@@ -81,15 +86,16 @@ const Decor1 = () => {
             className="absolute top-[0.006rem] left-[0rem] w-[17.931rem] h-[4.369rem] cursor-pointer"
             onClick={onGroupContainerClick}
           >
-            <div className="absolute top-[0rem] left-[0rem] rounded-11xl bg-white box-border w-[17.931rem] h-[4.369rem] opacity-[0.8] border-[1px] border-solid border-black" />
-             <b className=" absolute top-[0.89rem] left-[4.956rem] inline-block text-black whitespace-nowrap ml-2">
+            <div className="absolute top-[0rem] left-[0rem] rounded-11xl bg-white box-border w-[17.931rem] h-[4.369rem] opacity-[0.8] border-[1px] border-solid border-black flex items-center justify-center">
+              <img
+                className="absolute bottom-[0.5rem] left-[1.194rem] w-[3.138rem] h-[3.119rem] object-cover"
+                alt=""
+                src="/camera-21@2x.png"
+              />
+              <b className="absolute top-[0.7rem] left-[4.956rem] inline-block text-black whitespace-nowrap ml-2">
                 AR View
               </b>
-            <img
-              className="absolute top-[0.75rem] left-[1.694rem] w-[3.138rem] h-[3.119rem] object-cover"
-              alt=""
-              src="/camera-21@2x.png"
-            />
+            </div>
           </div>
           <img
             className="absolute top-[0rem] left-[19.119rem] w-[4.375rem] h-[4.375rem]"
@@ -105,9 +111,10 @@ const Decor1 = () => {
             />
           </div>
           <img
-            className="absolute top-[0.75rem] left-[18.931rem] w-[4.563rem] h-[2.938rem] object-cover"
+            className="absolute top-[0.75rem] left-[18.931rem] w-[4.563rem] h-[2.938rem] object-cover cursor-pointer"
             alt=""
-            src="/component-201@2x.png"
+            src={isHeartFilled ? "/heart@2x.png" : "/component-20@2x.png"}
+            onClick={toggleHeart}
           />
         </div>
         <div className="absolute top-[0rem] left-[51.438rem] w-[16.188rem] h-[5.313rem] text-[1.25rem] text-gray-100 font-montserrat">
@@ -126,3 +133,4 @@ const Decor1 = () => {
 };
 
 export default Decor1;
+

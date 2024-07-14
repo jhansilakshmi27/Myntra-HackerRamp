@@ -165,7 +165,6 @@ const handleHeartClick = (id) => {
             <img
               className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-21xl max-w-full overflow-hidden max-h-full object-cover"
               alt=""
-              src="/rectangle-615@2x.png"
               src={imageStates.image2 ? "/rose_earrings.png" : "/rectangle-615@2x.png"}
               onClick={() => handleImageClick("image2")}
             />

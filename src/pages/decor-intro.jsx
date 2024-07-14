@@ -1,13 +1,41 @@
+
 import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 
 const DecorIntro = () => {
+
   const navigate = useNavigate();
+
+  
+
   const [buttonStates, setButtonStates] = useState({
+
     button1: "Add to Bag",
+
     button2: "Add to Bag",
+
     button3: "Add to Bag",
+
   });
+
+
+  const [heartStates, setHeartStates] = useState({
+
+    heart1: false,
+
+    heart2: false,
+
+    heart3: false,
+
+  });
+
+   const handleHeartClick = (heartid) => {
+
+    setHeartStates((prevState) => ({ ...prevState, [heartid]: !prevState[heartid] }));
+
+  };
+
 
   const handleButtonClick = (buttonId) => {
     setButtonStates((prevState) => ({
@@ -105,37 +133,52 @@ const DecorIntro = () => {
                   Wishlist
                 </div>
               </div>
-              <img
-                className="absolute top-[0.625rem] left-[1.019rem] w-[3.238rem] h-[2.5rem] object-cover"
-                alt=""
-                src="/component-4@2x.png"
-              />
+         
+                
+                <img
+		  className="absolute top-[0.625rem] left-[1.019rem] w-[3.238rem] h-[2.5rem] object-cover"
+		  alt="Heart"
+		  src={heartStates["heart1"]? "/heart@2x.png" : "/component-4@2x.png"}
+		  onClick={() => handleHeartClick("heart1")}
+		  style={{ cursor: 'pointer' }}
+                 />
+        
             </div>
-            <div
-              className="absolute top-[0rem] left-[0rem] w-[12.375rem] h-[3.75rem] text-[1.875rem] cursor-pointer"
-              onClick={() => handleButtonClick("button1")}
-            >
-              <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-mini bg-whitesmoke-100" />
-              <div className="absolute h-[62.33%] w-[92.12%] top-[16.67%] left-[7.68%] font-semibold inline-block">
-                {buttonStates.button1 === "Added"? (
-                  <span>
-                    Added
-                    <svg
-                      className="inline-block w-[1.5rem] h-[1.5rem] ml-[0.5rem]"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="white"
-                      strokeWidth="2"
-                    >
-                      <circle cx="12" cy="12" r="10" fill="#000" />
-                      <path d="M10 15L12 17L16 11" stroke="#fff" strokeWidth="2" />
-                    </svg>
-                  </span>
-                ) : (
-                  buttonStates.button1
-                )}
-              </div>
-            </div>
+           <div
+	       className="absolute top-[0rem] left-[0rem] w-[12.375rem] h-[3.75rem] text-[1.875rem] cursor-pointer"
+	       onClick={() => handleButtonClick("button1")}
+	>
+	      <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-mini bg-whitesmoke-100" />
+	     <div className="absolute h-[62.33%] w-[92.12%] top-[16.67%] left-[7.68%] font-semibold inline-block flex items-center">
+	    {buttonStates.button1 === "Added" ? (
+	      <>
+		<span className="inline-block">Added</span>
+		<svg
+		  className="inline-block ml-2 w-[1.5rem] h-[1.5rem]"
+		  viewBox="0 0 30 30"
+		 
+		 >
+           <circle cx="15" cy="15" r="15" fill="black" />
+
+          <path
+
+          d="M10 15l6 6 12-12"
+
+          stroke="white"
+
+          strokeWidth="2"
+
+          strokeLinecap="round"
+
+          strokeLinejoin="round"
+        />
+		</svg>
+	      </>
+	    ) : (
+	      buttonStates.button1
+	    )}
+	  </div>
+	</div>
           </div>
         </div>
         <img
@@ -171,8 +214,14 @@ const DecorIntro = () => {
               </div>
               <img
                 className="absolute top-[0.625rem] left-[1.019rem] w-[3.238rem] h-[2.5rem] object-cover"
-                alt=""
-                src="/component-4@2x.png"
+               
+                  alt="Heart"
+                 src={heartStates["heart2"]? "/heart@2x.png" : "/component-4@2x.png"}
+
+                onClick={() => handleHeartClick("heart2")}
+
+               style={{ cursor: 'pointer' }}
+                
               />
             </div>
             <div
@@ -182,19 +231,29 @@ const DecorIntro = () => {
               <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-mini bg-whitesmoke-100" />
               <div className="absolute h-[62.33%] w-[92.12%] top-[16.67%] left-[7.68%] font-semibold inline-block">
                 {buttonStates.button2 === "Added"? (
-                  <span>
-                    Added
-                    <svg
-                      className="inline-block w-[1.5rem] h-[1.5rem] ml-[0.5rem]"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="white"
-                      strokeWidth="2"
-                    >
-                      <circle cx="12" cy="12" r="10" fill="#000" />
-                      <path d="M10 15L12 17L16 11" stroke="#fff" strokeWidth="2" />
-                    </svg>
-                  </span>
+                   <>
+		<span className="inline-block">Added</span>
+		<svg
+		  className="inline-block ml-2 w-[1.5rem] h-[1.5rem]"
+		  viewBox="0 0 30 30"
+		 
+		 >
+		   <circle cx="15" cy="15" r="15" fill="black" />
+
+		  <path
+
+		  d="M10 15l6 6 12-12"
+
+		  stroke="white"
+
+		  strokeWidth="2"
+
+		  strokeLinecap="round"
+
+		  strokeLinejoin="round"
+                />
+		</svg>
+	      </>
                 ) : (
                   buttonStates.button2
                 )}
@@ -235,8 +294,14 @@ const DecorIntro = () => {
               </div>
               <img
                 className="absolute top-[0.625rem] left-[1.019rem] w-[3.238rem] h-[2.5rem] object-cover"
-                alt=""
-                src="/component-41@2x.png"
+               
+                 alt="Heart"
+                 src={heartStates["heart3"]? "/heart@2x.png" : "/component-41@2x.png"}
+
+               onClick={() => handleHeartClick("heart3")}
+
+             style={{ cursor: 'pointer' }}
+                
               />
             </div>
             <div
@@ -246,19 +311,29 @@ const DecorIntro = () => {
               <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-mini bg-whitesmoke-100" />
               <div className="absolute h-[62.33%] w-[92.12%] top-[16.67%] left-[7.68%] font-semibold inline-block">
                 {buttonStates.button3 === "Added"? (
-                  <span>
-                    Added
-                    <svg
-                      className="inline-block w-[1.5rem] h-[1.5rem] ml-[0.5rem]"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="white"
-                      strokeWidth="2"
-                    >
-                      <circle cx="12" cy="12" r="10" fill="#000" />
-                      <path d="M10 15L12 17L16 11" stroke="#fff" strokeWidth="2" />
-                    </svg>
-                  </span>
+                  <>
+		<span className="inline-block">Added</span>
+		<svg
+		  className="inline-block ml-2 w-[1.5rem] h-[1.5rem]"
+		  viewBox="0 0 30 30"
+		 
+		 >
+		   <circle cx="15" cy="15" r="15" fill="black" />
+
+		  <path
+
+		  d="M10 15l6 6 12-12"
+
+		  stroke="white"
+
+		  strokeWidth="2"
+
+		  strokeLinecap="round"
+
+		  strokeLinejoin="round"
+		/>
+		</svg>
+	      </>
                 ) : (
                   buttonStates.button3
                 )}
