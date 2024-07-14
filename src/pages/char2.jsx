@@ -2,6 +2,10 @@ import React, { useState } from "react";
 
 const Char2 = () => {
   const [buttonStates, setButtonStates] = useState({});
+  const [imageStates, setImageStates] = useState({
+    image1: false,
+    image2: false,
+  });
 
   const handleAddToBagClick = (id) => {
     setButtonStates((prevState) => ({
@@ -10,13 +14,18 @@ const Char2 = () => {
     }));
   };
 
+  const handleImageClick = (id) => {
+    setImageStates((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id],
+    }));
+  };
+
  const renderButton = (id) => (
     <div className="relative">
-      <div
-        className="absolute top-[26.875rem] left-[2.875rem] w-[21.438rem] h-[3.875rem] cursor-pointer"
-      >
-        <img
-          className="absolute top-[0.063rem] left-[16.625rem] w-[4.813rem] h-[3.813rem] object-cover"
+      <div className="absolute top-[26.875rem] left-[2.875rem] w-[21.438rem] h-[3.875rem] cursor-pointer">
+        <img 
+        className="absolute top-[0.063rem] left-[16.625rem] w-[4.813rem] h-[3.813rem] object-cover"
           alt=""
           src="/bookmark@2x.png"
         />
@@ -113,13 +122,13 @@ const Char2 = () => {
           <div className="absolute top-[0rem] left-[0rem] w-[27.188rem] h-[33.813rem]">
             <div className="absolute top-[0rem] left-[0rem] rounded-6xl bg-gray-400 box-border w-[27.188rem] h-[33.813rem] border-[2px] border-solid border-black" />
             {renderButton("button1")}
-            
           </div>
           <div className="absolute top-[1.813rem] left-[2.875rem] w-[21.688rem] h-[23.375rem]">
             <img
               className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-21xl max-w-full overflow-hidden max-h-full object-cover"
               alt=""
-              src="/rectangle-59@2x.png"
+              src={imageStates.image1 ? "/jacket.png" : "/rectangle-59@2x.png"}
+              onClick={() => handleImageClick("image1")}
             />
             <img
               className="absolute h-[12.03%] w-[12.97%] top-[8.02%] right-[7.78%] bottom-[79.95%] left-[79.25%] max-w-full overflow-hidden max-h-full object-cover"
@@ -138,7 +147,8 @@ const Char2 = () => {
             <img
               className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-21xl max-w-full overflow-hidden max-h-full object-cover"
               alt=""
-              src="/rectangle-612@2x.png"
+              src={imageStates.image2 ? "/silver_chain.png" : "/rectangle-612@2x.png"}
+              onClick={() => handleImageClick("image2")}
             />
             <img
               className="absolute h-[12.03%] w-[12.97%] top-[8.02%] right-[6.92%] bottom-[79.95%] left-[80.12%] max-w-full overflow-hidden max-h-full object-cover"

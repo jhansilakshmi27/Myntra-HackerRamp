@@ -2,9 +2,20 @@ import React, { useState } from "react";
 
 const Char7 = () => {
   const [buttonStates, setButtonStates] = useState({});
+  const [imageStates, setImageStates] = useState({
+    image1: false,
+    image2: false,
+  });
 
   const handleAddToBagClick = (id) => {
     setButtonStates((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id],
+    }));
+  };
+
+  const handleImageClick = (id) => {
+    setImageStates((prevState) => ({
       ...prevState,
       [id]: !prevState[id],
     }));
@@ -119,7 +130,8 @@ const Char7 = () => {
             <img
               className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-21xl max-w-full overflow-hidden max-h-full object-cover"
               alt=""
-              src="/rectangle-595@2x.png"
+              src={imageStates.image1 ? "/anushka_saree.png" : "/rectangle-595@2x.png"}
+              onClick={() => handleImageClick("image1")}
             />
             <img
               className="absolute h-[12.03%] w-[12.97%] top-[8.56%] right-[10.95%] bottom-[79.41%] left-[76.08%] max-w-full overflow-hidden max-h-full object-cover"
@@ -138,7 +150,8 @@ const Char7 = () => {
             <img
               className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-21xl max-w-full overflow-hidden max-h-full object-cover"
               alt=""
-              src="/rectangle-617@2x.png"
+              src={imageStates.image2 ? "/anushka_earrings.png" : "/rectangle-617@2x.png"}
+              onClick={() => handleImageClick("image2")}
             />
             <img
               className="absolute h-[12.03%] w-[12.97%] top-[8.56%] right-[9.51%] bottom-[79.41%] left-[77.52%] max-w-full overflow-hidden max-h-full object-cover"
