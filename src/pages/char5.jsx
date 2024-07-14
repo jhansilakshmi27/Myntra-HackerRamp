@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const Char5 = () => {
   const [buttonStates, setButtonStates] = useState({});
+ 
   const [imageStates, setImageStates] = useState({
     image1: false,
     image2: false,
@@ -20,6 +21,18 @@ const Char5 = () => {
       [id]: !prevState[id],
     }));
   };
+ 
+   const [heartStates, setHeartStates] = useState({
+   button1: false,
+   button2: false,
+   });
+const handleHeartClick = (id) => {
+      setHeartStates((prevState) => ({
+      ...prevState,
+      [id]:!prevState[id],
+     }));
+
+  };
 
   const renderButton = (id) => (
     <div className="relative">
@@ -31,10 +44,14 @@ const Char5 = () => {
           alt=""
           src="/bookmark@2x.png"
         />
-        <img
+         <img
           className="absolute top-[0rem] left-[12.375rem] w-[4.813rem] h-[3.813rem] object-cover"
-          alt=""
-          src="/component-42@2x.png"
+           alt="Heart"
+             src={heartStates[id]? "/heart@2x.png" : "/component-41@2x.png"}
+
+          onClick={() => handleHeartClick(id)}
+
+          style={{ cursor: 'pointer' }}
         />
         <div
           className="absolute top-[0.063rem] left-[0rem] w-[12.188rem] h-[3.75rem] cursor-pointer"
